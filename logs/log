@@ -1,0 +1,131 @@
+INFO _internal.py:225  * Restarting with stat
+WARNING _internal.py:225  * Debugger is active!
+INFO _internal.py:225  * Debugger PIN: 142-979-420
+INFO _internal.py:225  * Running on http://127.0.0.1:8999/ (Press CTRL+C to quit)
+INFO _internal.py:225 127.0.0.1 - - [08/Jun/2022 16:03:40] "GET / HTTP/1.1" 200 -
+INFO _internal.py:225 127.0.0.1 - - [08/Jun/2022 16:03:40] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO _internal.py:225  * Detected change in 'D:\\DataCenter\\onWorking\\campus_service\\web\\controllers\\index.py', reloading
+INFO _internal.py:225  * Restarting with stat
+WARNING _internal.py:225  * Debugger is active!
+INFO _internal.py:225  * Debugger PIN: 142-979-420
+INFO _internal.py:225  * Running on http://127.0.0.1:8999/ (Press CTRL+C to quit)
+ERROR index.py:15 sss
+INFO _internal.py:225 127.0.0.1 - - [08/Jun/2022 16:03:47] "GET / HTTP/1.1" 200 -
+INFO _internal.py:225  * Detected change in 'D:\\DataCenter\\onWorking\\campus_service\\config\\base_setting.py', reloading
+INFO _internal.py:225  * Restarting with stat
+WARNING _internal.py:225  * Debugger is active!
+INFO _internal.py:225  * Debugger PIN: 142-979-420
+INFO _internal.py:225  * Running on http://127.0.0.1:8999/ (Press CTRL+C to quit)
+INFO _internal.py:225  * Detected change in 'D:\\DataCenter\\onWorking\\campus_service\\common\\models\\Mark.py', reloading
+INFO _internal.py:225  * Restarting with stat
+WARNING _internal.py:225  * Debugger is active!
+INFO _internal.py:225  * Debugger PIN: 142-979-420
+INFO _internal.py:225  * Running on http://127.0.0.1:8999/ (Press CTRL+C to quit)
+INFO _internal.py:225  * Detected change in 'D:\\DataCenter\\onWorking\\campus_service\\common\\models\\Major.py', reloading
+INFO _internal.py:225  * Restarting with stat
+WARNING _internal.py:225  * Debugger is active!
+INFO _internal.py:225  * Debugger PIN: 142-979-420
+INFO _internal.py:225  * Running on http://127.0.0.1:8999/ (Press CTRL+C to quit)
+INFO _internal.py:225  * Detected change in 'D:\\DataCenter\\onWorking\\campus_service\\common\\models\\Course.py', reloading
+INFO _internal.py:225  * Restarting with stat
+WARNING _internal.py:225  * Debugger is active!
+INFO _internal.py:225  * Debugger PIN: 142-979-420
+INFO _internal.py:225  * Running on http://127.0.0.1:8999/ (Press CTRL+C to quit)
+INFO _internal.py:225  * Detected change in 'D:\\DataCenter\\onWorking\\campus_service\\common\\models\\Class.py', reloading
+INFO _internal.py:225  * Restarting with stat
+WARNING _internal.py:225  * Debugger is active!
+INFO _internal.py:225  * Debugger PIN: 142-979-420
+INFO _internal.py:225  * Running on http://127.0.0.1:8999/ (Press CTRL+C to quit)
+INFO log.py:117 SHOW VARIABLES LIKE 'sql_mode'
+INFO log.py:117 [raw sql] ()
+INFO log.py:117 SHOW VARIABLES LIKE 'lower_case_table_names'
+INFO log.py:117 [generated in 0.00071s] ()
+INFO log.py:117 SELECT DATABASE()
+INFO log.py:117 [raw sql] ()
+INFO log.py:117 BEGIN (implicit)
+INFO log.py:117 SELECT students.class AS students_class, students.uid AS students_uid, students.stu_num AS students_stu_num, students.name AS students_name, students.grade AS students_grade, students.gender AS students_gender, students.age AS students_age, students.birth AS students_birth, students.major AS students_major, students.people_id AS students_people_id, students.adm_date AS students_adm_date, students.nation AS students_nation, students.tel AS students_tel, students.address AS students_address, students.politics AS students_politics, students.native_place AS students_native_place, students.dorm_id AS students_dorm_id, students.registered_residence AS students_registered_residence 
+FROM students 
+WHERE students.uid = %s 
+ LIMIT %s
+INFO log.py:117 [generated in 0.00128s] (1, 1)
+INFO log.py:117 SELECT major.id AS major_id, major.name AS major_name, major.college AS major_college 
+FROM major 
+WHERE major.id = %s 
+ LIMIT %s
+INFO log.py:117 [generated in 0.00109s] (1, 1)
+ERROR __init__.py:98 Error: Path doesn't exist: 'D:\\DataCenter\\onWorking\\campus_service\\migrations'.  Please use the 'init' command to create a new scripts folder.
+ERROR __init__.py:98 Error: Directory migrations already exists and is not empty
+INFO log.py:117 SHOW VARIABLES LIKE 'sql_mode'
+INFO log.py:117 [raw sql] ()
+INFO log.py:117 SHOW VARIABLES LIKE 'lower_case_table_names'
+INFO log.py:117 [generated in 0.00080s] ()
+INFO log.py:117 SELECT DATABASE()
+INFO log.py:117 [raw sql] ()
+INFO log.py:117 BEGIN (implicit)
+INFO log.py:117 SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = %s AND table_name = %s
+INFO log.py:117 [generated in 0.00098s] ('campus_service2', 'students')
+INFO log.py:117 
+CREATE TABLE students (
+	uid INTEGER NOT NULL AUTO_INCREMENT, 
+	stu_num VARCHAR(15) COLLATE utf8_general_ci, 
+	name VARCHAR(10) COLLATE utf8_general_ci NOT NULL, 
+	grade VARCHAR(4) COLLATE utf8_general_ci, 
+	gender ENUM('ÄÐ','Å®','±£ÃÜ'), 
+	age INTEGER, 
+	birth DATE, 
+	major INTEGER, 
+	class INTEGER, 
+	people_id VARCHAR(18) COLLATE utf8_general_ci, 
+	adm_date DATE, 
+	nation VARCHAR(5) COLLATE utf8_general_ci, 
+	tel VARCHAR(11) COLLATE utf8_general_ci NOT NULL, 
+	address VARCHAR(100) COLLATE utf8_general_ci, 
+	politics ENUM('ÍÅÔ±','ÈºÖÚ','¹²²úµ³Ô±'), 
+	native_place VARCHAR(20) COLLATE utf8_general_ci, 
+	dorm_id INTEGER, 
+	registered_residence VARCHAR(100) COLLATE utf8_general_ci, 
+	created_time DATETIME, 
+	updated_time DATETIME, 
+	PRIMARY KEY (uid), 
+	UNIQUE (stu_num)
+)
+
+
+INFO log.py:117 [no key 0.00925s] ()
+INFO log.py:117 COMMIT
+INFO log.py:117 BEGIN (implicit)
+INFO log.py:117 SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = %s AND table_name = %s
+INFO log.py:117 [cached since 160.9s ago] ('campus_service2', 'students')
+INFO log.py:117 SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = %s AND table_name = %s
+INFO log.py:117 [cached since 160.9s ago] ('campus_service2', 'teachers')
+INFO log.py:117 
+CREATE TABLE teachers (
+	id INTEGER NOT NULL AUTO_INCREMENT, 
+	tea_num VARCHAR(20) COLLATE utf8mb4_general_ci, 
+	name VARCHAR(20) COLLATE utf8mb4_general_ci, 
+	gender ENUM('ÄÐ','Å®'), 
+	wechat_num VARCHAR(50) COLLATE utf8mb4_general_ci, 
+	phone VARCHAR(11) COLLATE utf8mb4_general_ci, 
+	email VARCHAR(20) COLLATE utf8mb4_general_ci, 
+	updated_time DATETIME, 
+	created_time DATETIME, 
+	PRIMARY KEY (id), 
+	UNIQUE (tea_num)
+)
+
+
+INFO log.py:117 [no key 0.00115s] ()
+INFO log.py:117 COMMIT
+INFO log.py:117 SHOW VARIABLES LIKE 'sql_mode'
+INFO log.py:117 [raw sql] ()
+INFO log.py:117 SHOW VARIABLES LIKE 'lower_case_table_names'
+INFO log.py:117 [generated in 0.00063s] ()
+INFO log.py:117 SELECT DATABASE()
+INFO log.py:117 [raw sql] ()
+INFO log.py:117 BEGIN (implicit)
+INFO log.py:117 SELECT mark.id AS mark_id, mark.stu_id AS mark_stu_id, mark.cno_id AS mark_cno_id, mark.score AS mark_score, mark.upadted_time AS mark_upadted_time, mark.created_time AS mark_created_time 
+FROM mark
+INFO log.py:117 [generated in 0.00082s] ()
+INFO log.py:117 SELECT mark.id AS mark_id, mark.stu_id AS mark_stu_id, mark.cno_id AS mark_cno_id, mark.score AS mark_score, mark.upadted_time AS mark_upadted_time, mark.created_time AS mark_created_time 
+FROM mark
+INFO log.py:117 [cached since 3.19s ago] ()
