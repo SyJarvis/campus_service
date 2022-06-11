@@ -1,0 +1,25 @@
+<!--pages/my/my.wxml-->
+<view class="container">
+    <view class="bg-img bg-mask padding-tb-xl" style="background-image:url('../../images/pc.jpg');height:138px;">
+        <view class="flex solid-bottom padding justify-start">
+            <view class="cu-avatar xl round" style="background-image: url({{userInfo.avatarUrl}});"></view>
+            <view>
+                <view class="solid-bottom text-xl text-white padding-left">
+                    <text>{{userInfo.nickName}}</text><text>{{userInfo.stu_num}}</text>
+                </view>
+                <view class="solid-bottom text-xs text-white padding-left">{{userInfo.drom_name}}</view>
+            </view>
+        </view>
+
+    </view>
+<!-- 内容区域 -->
+
+    <view class="content">
+        <view class="box">成绩查询</view>
+        <view class="box">综测分</view>
+        <view class="box">签到记录</view>
+        <view class="box" bindtap="navQcrode">发起签到</view>
+    </view>
+    
+
+</view>

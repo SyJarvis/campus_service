@@ -5,7 +5,6 @@ from application import db
 
 class Class(db.Model):
     __tablename__ = 'class'
-
     id = db.Column(db.Integer, primary_key=True, info='id')
     name = db.Column(db.String(10, 'utf8_general_ci'), info='班级名称')
     major = db.Column(db.Integer, info='专业')

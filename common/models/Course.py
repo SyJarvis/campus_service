@@ -5,7 +5,7 @@ from application import db
 
 class Course(db.Model):
     __tablename__ = 'course'
-
+    __table_args__ = {'extend_existing': True}
     id = db.Column(db.Integer, primary_key=True, info='id')
     cno = db.Column(db.String(8, 'utf8mb4_general_ci'), nullable=False, unique=True, info='课程编号')
     cname = db.Column(db.String(20, 'utf8mb4_general_ci'), nullable=False, info='课程名称')

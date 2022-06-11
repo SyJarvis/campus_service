@@ -1,5 +1,5 @@
 "campus_service" 
-
+flask-sqlacodegen "mysql://root:mysql0220@127.0.0.1/order_water" --tables member --outfile "Member.py" --flask
 
 
 ### 运行
@@ -8,7 +8,9 @@
 python manage.py runserver
 python manage.py runserver -h 192.168.0.103 -p 8000
 ```
-
+python manage.py db init
+python manage.py db migrate -m "init table"
+python manage.py db upgrade
 
 
 

@@ -7,8 +7,6 @@
 from application import db
 
 class User(db.Model):
-
-
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True, info='id')
     tea_num = db.Column(db.String(20, 'utf8mb4_general_ci'), unique=True, info='编号')

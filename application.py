@@ -12,6 +12,8 @@ from flask_wtf import CSRFProtect
 import logging
 from logging.handlers import RotatingFileHandler
 import redis
+import pymysql
+pymysql.install_as_MySQLdb()
 
 
 class Application(Flask):

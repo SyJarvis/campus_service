@@ -5,10 +5,10 @@
 
 DEBUG = True
 SERVER_HOST = '127.0.0.1'
-SERVER_PORT = 8999
+SERVER_PORT = 8000
 
 SQLALCHEMY_ECHO = True
-SQLALCHEMY_DATABASE_URI = "mysql://root:mysql0220@127.0.0.1:3306/campus_service2?charset=utf8mb4"
+SQLALCHEMY_DATABASE_URI = "mysql://root:mysql0220@127.0.0.1:3306/campus_service?charset=utf8mb4"
 SQLALCHEMY_TRACK_MODIFICATIONS = True
 
 

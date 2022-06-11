@@ -4,7 +4,7 @@
 # @Software : PyCharm
 
 class RET:
-    OK                  = "0"
+    OK                  = "200"
     DBERR               = "4001"
     NODATA              = "4002"
     DATAEXIST           = "4003"
