@@ -7,16 +7,19 @@ Page({
      * 页面的初始数据
      */
     data: {
-        text: 'http://120.25.1.147:8000/api/punch_in?id=1',
+        text: 'http://120.25.1.147:8000/api/punch_in',
         inputValue: '',
-        result: ''
+        result: '',
+        regFlag: false
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
+    onLoad: function (e) {
         this.checkLogin();
+        console.log('out:' + this.data.regFlag)
+        
         // this.draw();
         // wx.navigateTo({
         //     url: '/pages/login/index',
@@ -162,20 +165,43 @@ Page({
                     method: 'POST',
                     data: {code: res.code},
                     success:function(res){
-                        if(res.data.code != 200){
-                            
-                            // app.alert({'content': res.data.msg});
+                        if(res.data.code == 200){
+                            // 微信授权且绑定学生信息
+                            app.console("checkLogin is OK");
+                            that.setData({
+                                regFlag: true
+                            })
+                            app.console(that.data.regFlag);
+                            app.setCache("token", res.data.data.token);
+                        }else if(res.data.code == 1001){
+                            // 微信已授权，但未绑定学生信息
+                            wx.showModal({
+                                title: '信息绑定',
+                                content: '你还未进行信息绑定，是否进行绑定',
+                                success (res) {
+                                  if (res.confirm) {
+                                    wx.navigateTo({
+                                      url: '/pages/index/auth',
+                                    })
+                                  } else if (res.cancel) {
+                                    console.log('用户点击取消')
+                                  }
+                                }
+                              })
+                        }else{
+                            // 验证失败
+                            app.console("checkLogin is fail");
+                            app.alert({'content': res.data.msg});
                             that.setData({
                                 regFlag:false
                             })
-
                             that.showAuth();
                             return;
                         }
-                        app.setCache("token", res.data.data.token);
+                        
                     }
                 })
             }
         })
-    },
+    }
 })

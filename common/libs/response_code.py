@@ -5,6 +5,7 @@
 
 class RET:
     OK                  = "200"
+    NOTBINDUSER         = "1001"
     DBERR               = "4001"
     NODATA              = "4002"
     DATAEXIST           = "4003"
@@ -21,6 +22,7 @@ class RET:
     IOERR               = "4302"
     SERVERERR           = "4500"
     UNKOWNERR           = "4501"
+
 
 error_map = {
     RET.OK                    : u"成功",

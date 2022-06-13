@@ -12,6 +12,9 @@ from common.libs.member.Member_service import MemberService
 from common.models.Member import Member
 from common.models.OauthMemberBind import OauthMemberBind
 from common.libs.Helper import getCurrentDate
+from common.models.Student import Student
+from common.models.ClassTable import ClassTable
+from common.models.User import User
 from flask import current_app
 
 
@@ -115,6 +118,63 @@ def checkReg():
         resp['msg'] = '未查询到绑定信息'
         return jsonify(resp)
 
+    user_info = User.query.filter_by(member_id=member_info.id).first()
+    if not user_info:
+        resp['code'] = RET.NOTBINDUSER
+        resp['msg'] = '没有绑定学生信息'
+        return jsonify(resp)
+
     token = "%s#%s" % (MemberService.geneAuthCode(member_info), member_info.id)
     resp['data'] = {'token': token}
+    return jsonify(resp)
+
+
+@route_api.route('/member/auth_bind', methods=['POST'])
+def AuthBind():
+    resp = {'code':RET.OK, 'msg':'操作成功', 'data':{}}
+    req = request.values
+    token = request.headers['Authorization']
+
+    print(req)
+    print('=========================')
+    print('token：', token)
+    school_name = req['school'] if 'school' in req else ''
+    college_name = req['college'] if 'college' in req else ''
+    class_name = req['class'] if 'class' in req else ''
+    name = req['name'] if 'name' in req else ''
+    stu_num = req['StuNum'] if 'StuNum' in req else ''
+    if not all([school_name, college_name, class_name, name, stu_num]):
+        resp['code'] = RET.PARAMERR
+        resp['msg'] = '参数不完整'
+        return jsonify(resp)
+
+    class_info = ClassTable.query.filter_by(name=class_name).first()
+    print("============class_info================")
+    print(class_info)
+    user_info = User.query.filter_by(name=name, stu_num=stu_num).first()
+    if user_info:
+        resp['code'] = RET.OK
+        resp['msg'] = '已存在'
+        print(resp)
+        return jsonify(resp)
+
+    stu_info = Student.query.filter_by(name=name, stu_num=stu_num).first()
+    if not stu_info:
+        resp['code'] = RET.PARAMERR
+        resp['msg'] = '没有此学生信息, 请重试'
+        return jsonify(resp)
+    else:
+        member_id = int(token.split("#")[1])
+        user_info = User()
+        user_info.stu_num = stu_num
+        user_info.name = name
+        user_info.member_id = member_id
+        user_info.class_id = class_info.id
+        user_info.status = 1
+        user_info.created_time = getCurrentDate()
+        user_info.updated_time = getCurrentDate()
+
+        db.session.add(user_info)
+        db.session.commit()
+    resp['data']['token'] = token
     return jsonify(resp)

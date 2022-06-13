@@ -4,14 +4,13 @@ const app = getApp()
 
 Page({
     data: {
-        motto: 'Hello World',
         userInfo: {},
         remind: '加载中',
         angle: 0,
         regFlag: true
 
     },
-    onLoad:function() {
+    onLoad: function () {
         if (wx.getUserProfile) {
             this.setData({
                 canIUseGetUserProfile: true
@@ -19,9 +18,9 @@ Page({
         }
 
     },
-    goToIndex:function(){
-        wx.switchTab({
-          url: '/pages/index/class',
+    goToAuth: function () {
+        wx.navigateTo({
+            url: '/pages/index/auth',
         })
     },
     getUserProfile(e) {
@@ -34,7 +33,7 @@ Page({
                 var data = res.userInfo
                 console.log(res.userInfo)
                 wx.login({
-                    
+
                     success(res) {
                         console.log(res);
                         console.log(res.code);
@@ -56,8 +55,9 @@ Page({
                             success: function (res) {
                                 if (res.data.code != 200) {
                                     console.log('error300')
+
                                 } else {
-                                    that.goToIndex();
+                                    that.goToAuth();
                                     console.log('ok');
                                     console.log(res.data);
                                     app.setCache('token', res.data.data.token);
@@ -69,15 +69,17 @@ Page({
                 })
             }
         })
-        
-    },
 
-    
-    
+    },
     click_tap: function () {
         app.alert({
             'content': '登录失败，请再次点击'
         })
-    },    
-    
+    },
+    BackIndex: function () {
+        wx.navigateBack({
+          delta: 1,
+        })
+    }
+
 })

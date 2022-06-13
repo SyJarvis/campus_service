@@ -3,20 +3,6 @@ from application import db
 
 
 
-class College(db.Model):
-    __tablename__ = 'college'
-
-    id = db.Column(db.Integer, primary_key=True, info='id')
-    name = db.Column(db.String(20), info='????')
-    campus_position = db.Column(db.String(20), info='??')
-    school_id = db.Column(db.ForeignKey('university.id'), index=True, info='??id')
-    created_time = db.Column(db.DateTime, info='????')
-    updated_time = db.Column(db.DateTime, info='????')
-
-    school = db.relationship('University', primaryjoin='College.school_id == University.id', backref='colleges')
-
-
-
 class University(db.Model):
     __tablename__ = 'university'
 

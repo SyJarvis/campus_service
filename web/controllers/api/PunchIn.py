@@ -12,6 +12,10 @@ from flask import current_app
 
 @route_api.route('/punch_in', methods=['GET', 'POST'])
 def punch_card():
+    '''
+    打卡
+    :return:
+    '''
     resp = {'code': RET.OK, 'msg':'操作成功'}
     current_app.logger.info(resp)
     print("========================sssssssssssssssssssssss")

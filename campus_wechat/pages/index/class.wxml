@@ -8,8 +8,23 @@
             <button class="cu-btn text-white shadow-blur round" size="mini" style="background-color: #002fa7;">搜索</button>
         </view>
     </view>
-    <button bindtap='getScancode'>扫一扫</button>
+    <view class="tools">
+        <view class="scan" bindtap='getScancode'>
+            <image src="/images/scan.png" mode="scaleToFill"></image>
+            <text>扫一扫</text>
+        </view>
+        <view class="member">
+            <image src="/images/member.png" mode="scaleToFill"></image>
+            <text>成员</text>
+        </view>
+        <view class="folder">
+            <image src="/images/folder.png" mode="scaleToFill"></image>
+            <text>文件</text>
+        </view>
+    </view>
     <view wx:if="{{result !=''}}">
         <view>扫码的内容:{{result}}</view>
     </view>
+
+
 </view>

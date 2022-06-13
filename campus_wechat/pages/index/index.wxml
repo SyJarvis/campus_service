@@ -10,7 +10,7 @@
         </view>
 
         <button class="confirm-btn" bindtap="getUserProfile">授权登录</button>
-        <button>返回首页</button>
+        <button bindtap="BackIndex">返回首页</button>
         <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号码</button> -->
         <!-- <button class="" bindtap="click_tap">点击</button> -->
     </block>

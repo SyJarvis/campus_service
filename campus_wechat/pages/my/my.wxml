@@ -1,6 +1,6 @@
 <!--pages/my/my.wxml-->
 <view class="container">
-    <view class="bg-img bg-mask padding-tb-xl" style="background-image:url('../../images/pc.jpg');height:138px;">
+    <view class="bg-img bg-mask padding-tb-xl" style="background-image:url('');height:138px;">
         <view class="flex solid-bottom padding justify-start">
             <view class="cu-avatar xl round" style="background-image: url({{userInfo.avatarUrl}});"></view>
             <view>

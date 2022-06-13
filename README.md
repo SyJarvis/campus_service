@@ -1,6 +1,8 @@
 "campus_service" 
-flask-sqlacodegen "mysql://root:mysql0220@127.0.0.1/order_water" --tables member --outfile "Member.py" --flask
-
+flask-sqlacodegen "mysql://root:mysql0220@127.0.0.1/campus_service" --tables user --outfile "User.py" --flask
+flask-sqlacodegen "mysql://root:mysql0220@127.0.0.1/campus_service" --tables university --outfile "University.py" --flask
+flask-sqlacodegen "mysql://root:mysql0220@127.0.0.1/campus_service" --tables college --outfile "College.py" --flask
+flask-sqlacodegen "mysql://root:mysql0220@127.0.0.1/campus_service" --tables classes --outfile "Classes.py" --flask
 
 ### 运行
 
